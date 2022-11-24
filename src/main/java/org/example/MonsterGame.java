@@ -29,7 +29,7 @@ public class MonsterGame {
 
         // Create Obstacles and Border
         Obstacle obstacleObject = new Obstacle();
-        obstacleObject.createBorders();
+//        obstacleObject.createBorders();
         List<Position> obstacles = obstacleObject.obstacles;
         obstacleObject.addObstacle();
 
@@ -140,43 +140,53 @@ public class MonsterGame {
     }
     private static void helpMonMoveAroundObs(Position monPos, Position player, int monOldX, int monOldY, List<Position> obstacles) {
         // check if vertical obs
-        boolean isVertical = false;
         for (Position obstacle : obstacles) {
             if ((monPos.y + 1) == obstacle.y || (monPos.y - 1) == obstacle.y) {
                 if (player.y > monPos.y) {
                     monPos.y = monOldY +1;
                     monPos.x = monOldX;
-                    isVertical = true;
-                } else if (player.y <monPos.y){
+                    break;
+                } else if (player.y < monPos.y){
                     monPos.y = monOldY -1;
                     monPos.x = monOldX;
-                    isVertical = true;
+                    break;
                 } else {
                     monPos.y = monOldY;
                     monPos.x = monOldX;
-                    isVertical = true;
+                    break;
+                }
+            } else if (((monPos.x + 1) == obstacle.x || (monPos.x - 1) == obstacle.x)) {
+                if (player.x > monPos.x) {
+                    monPos.x = monOldX +1;
+                    monPos.y = monOldY;
+                    break;
+                } else if (player.x < monPos.x) {
+                    monPos.x = monOldX -1;
+                    monPos.y = monOldY;
+                    break;
+                } else {
+                    monPos.y = monOldY;
+                    monPos.x = monOldX;
+                    break;
                 }
             }
+
         }
-        if (!isVertical) {
-            for (Position obstacle : obstacles) {
-                if ((monPos.x + 1) == obstacle.x || (monPos.x - 1) == obstacle.x) {
-                    if (player.x > monPos.x) {
-                        monPos.x = monOldX +1;
-                        monPos.y = monOldY;
-                    } else if (player.x < monPos.x) {
-                        monPos.x = monOldX -1;
-                        monPos.y = monOldY;
-                    } else {
-                        monPos.y = monOldY;
-                        monPos.x = monOldX;
-                    }
-                }
-            }
-
-
-            }
-        }
-
-
+//        if (!isVertical) {
+//                if (player.x > monPos.x) {
+//                    monPos.x = monOldX +1;
+//                    monPos.y = monOldY;
+//                } else if (player.x < monPos.x) {
+//                    monPos.x = monOldX -1;
+//                    monPos.y = monOldY;
+//                } else {
+//                    monPos.y = monOldY;
+//                    monPos.x = monOldX;
+//                }
+//        }
     }
+
+
+}
+
+
