@@ -1,7 +1,6 @@
 package org.example;
 
 import com.googlecode.lanterna.input.KeyStroke;
-import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 
@@ -15,20 +14,10 @@ public class MonsterGame {
         // Refaktorera i metoder
         // Bug: Monster kan spawna PÅ obstacle
         // Bug: Monster kan deleta obstacle vertikalt
-        /*
-        Vytis gjort:
-        - Skapat moveObject metod, tog bort monstermovement repeterande kod
-        - Ändrade så att playerCharacter också är ett Position objekt. Variabel: player
-        - Ändrade namnet på hjärtat (spelarens avatar) till playerCharacter
-        - Alltså överallt där det var x och y är det nu player.x och player.y
-        - Några förkortningar: monsterPosition : monPos
-         */
-
 
         DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory();
         Terminal terminal = terminalFactory.createTerminal();
         terminal.setCursorVisible(false);
-
 
         Position player = new Position(5,5);
         final char playerCharacter = '\u2661';
@@ -96,35 +85,14 @@ public class MonsterGame {
             // MONSTER MOVEMENT
             int monOldX = monPos.x;
             int monOldY = monPos.y;
-            //testade metod för att ta bort lines under men funkade inte..
-            //setMonsterCoordinates(monPos.x, monPos.y, player.x, player.y);
-            if (monPos.x > player.x) {
-                monPos.x--;
-            } else if (monPos.x < player.x){
-                monPos.x++;
-            }
-            if (monPos.y > player.y) {
-                monPos.y--;
-            } else if (monPos.y < player.y){
-                monPos.y++;
-            }
 
+            setMonsterCoordinates(monPos, player);
             boolean monsterCrash = checkForObstacleCrash(obstacles,monPos.x, monPos.y);
 
             // helps monster move around obstacle when hitting it
             if (monsterCrash) {
-                if (monPos.x > player.x) {
-                    monPos.x = monOldX-1;
-                    monPos.y = monOldY;
-                } else if (monPos.x < player.x) {
-                    monPos.x = monOldX+1;
-                    monPos.y = monOldY;
-                } else {
-                    monPos.x = monOldX;
-                    monPos.y = monOldY;
-                }
+                helpMonMoveAroundObs(monPos, player, monOldX, monOldY);
                 moveObject(monOldX, monOldY, monPos.x, monPos.y, monster, terminal);
-
             } else {
                 moveObject(monOldX, monOldY, monPos.x, monPos.y, monster, terminal);
             }
@@ -138,6 +106,8 @@ public class MonsterGame {
             terminal.flush();
         }
     }
+
+
     public static void moveObject(int oldX, int oldY, int newX, int newY, char character, Terminal terminal) throws IOException {
         terminal.setCursorPosition(oldX, oldY);
         terminal.putCharacter(' ');
@@ -153,16 +123,28 @@ public class MonsterGame {
         }
         return false;
     }
-    public static void setMonsterCoordinates(int monX, int monY, int plyrX, int plyrY) {
-        if (monX > plyrX) {
-            monX--;
-        } else if (monX < plyrX){
-            monX++;
+    public static void setMonsterCoordinates(Position monPos, Position player) {
+        if (monPos.x > player.x) {
+            monPos.x--;
+        } else if (monPos.x < player.x){
+            monPos.x++;
         }
-        if (monY > plyrY) {
-            monY--;
-        } else if (monY < plyrY){
-            monY++;
+        if (monPos.y > player.y) {
+            monPos.y--;
+        } else if (monPos.y < player.y){
+            monPos.y++;
+        }
+    }
+    private static void helpMonMoveAroundObs(Position monPos, Position player, int monOldX, int monOldY) {
+        if (monPos.x > player.x) {
+            monPos.x = monOldX-1;
+            monPos.y = monOldY;
+        } else if (monPos.x < player.x) {
+            monPos.x = monOldX+1;
+            monPos.y = monOldY;
+        } else {
+            monPos.x = monOldX;
+            monPos.y = monOldY;
         }
     }
 
