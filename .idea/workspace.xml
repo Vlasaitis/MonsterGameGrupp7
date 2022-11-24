@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="978af2cc-27d8-417d-8aad-b36d71ffa89c" name="Changes" comment="Randomly generated obstacles">
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MonsterGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/MonsterGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Obstacle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Obstacle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Position.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +97,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669303428208</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Monster saved">
+      <created>1669304711124</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1669304711124</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
