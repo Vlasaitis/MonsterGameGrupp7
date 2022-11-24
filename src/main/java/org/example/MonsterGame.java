@@ -11,7 +11,7 @@ import java.util.Random;
 public class MonsterGame {
     public static void main(String[] args) throws Exception {
         // Goal: Generera en bana med flera mindre hinder. Slumpmässigt
-        // OOP för monster
+        // OOP för monster.
         // Refaktorera i metoder
         // Bug: Monster kan spawna PÅ obstacle
 
