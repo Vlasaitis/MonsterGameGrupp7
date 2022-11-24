@@ -31,14 +31,13 @@ public class MonsterGame {
         // Create Obstacles and Border
         Obstacle obstacleObject = new Obstacle();
 //        obstacleObject.createBorders();
-        List<Position> obstacles = obstacleObject.obstacles;
+
         obstacleObject.addObstacle();
         obstacleObject.createBorders();
+        List<Position> obstacles = obstacleObject.obstacles;
         drawObstacles(obstacles, terminal, block);
 
 
-//        Random r = new Random();
-//        Position monPos = new Position(r.nextInt(40,80), r.nextInt(24));;
         Position monPos = new Position(77, 22);
         terminal.setCursorPosition(monPos.x, monPos.y);
         terminal.putCharacter(monster);
