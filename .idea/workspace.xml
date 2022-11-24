@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="978af2cc-27d8-417d-8aad-b36d71ffa89c" name="Changes" comment="Help the monster">
+    <list default="true" id="978af2cc-27d8-417d-8aad-b36d71ffa89c" name="Changes" comment="Monster saved">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MonsterGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/MonsterGame.java" afterDir="false" />
     </list>
@@ -88,7 +88,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669300409389</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Monster saved">
+      <created>1669303428208</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1669303428208</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -109,6 +116,7 @@
     <MESSAGE value="Vytis refactoring 24:e" />
     <MESSAGE value="Obstacles object added" />
     <MESSAGE value="Help the monster" />
-    <option name="LAST_COMMIT_MESSAGE" value="Help the monster" />
+    <MESSAGE value="Monster saved" />
+    <option name="LAST_COMMIT_MESSAGE" value="Monster saved" />
   </component>
 </project>

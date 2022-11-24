@@ -14,13 +14,14 @@ public class MonsterGame {
         // OOP för monster
         // Refaktorera i metoder
         // Bug: Monster kan spawna PÅ obstacle
-        // Bug: Monster kan deleta obstacle vertikalt
+
+        // Startpositioner Monster: 2, 22 OCH 77,22
 
         DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory();
         Terminal terminal = terminalFactory.createTerminal();
         terminal.setCursorVisible(false);
 
-        Position player = new Position(5,5);
+        Position player = new Position(40,3);
         final char playerCharacter = '\u2661';
         final char block = '\u2588';
         final char monster = '\u2620';
@@ -32,12 +33,13 @@ public class MonsterGame {
 //        obstacleObject.createBorders();
         List<Position> obstacles = obstacleObject.obstacles;
         obstacleObject.addObstacle();
-
+        obstacleObject.createBorders();
         drawObstacles(obstacles, terminal, block);
 
 
-        Random r = new Random();
-        Position monPos = new Position(r.nextInt(40,80), r.nextInt(24));
+//        Random r = new Random();
+//        Position monPos = new Position(r.nextInt(40,80), r.nextInt(24));;
+        Position monPos = new Position(77, 22);
         terminal.setCursorPosition(monPos.x, monPos.y);
         terminal.putCharacter(monster);
 
