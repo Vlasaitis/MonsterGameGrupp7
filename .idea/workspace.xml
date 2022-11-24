@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="978af2cc-27d8-417d-8aad-b36d71ffa89c" name="Changes" comment="Vytis refactoring 23:e">
+    <list default="true" id="978af2cc-27d8-417d-8aad-b36d71ffa89c" name="Changes" comment="Vytis refactoring 24:e">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Obstacle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MonsterGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/MonsterGame.java" afterDir="false" />
     </list>
@@ -41,7 +42,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/VytisLasaitis/Desktop/UNZIPPED DONE"
+    "last_opened_file_path": "C:/Users/VytisLasaitis/Desktop/IntelliJProjects/AssessmentTest1Done"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -67,7 +68,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669234546274</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Vytis refactoring 24:e">
+      <created>1669280638539</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1669280638539</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -85,6 +93,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="MonsterGameGrupp7 Start" />
     <MESSAGE value="Vytis refactoring 23:e" />
-    <option name="LAST_COMMIT_MESSAGE" value="Vytis refactoring 23:e" />
+    <MESSAGE value="Vytis refactoring 24:e" />
+    <option name="LAST_COMMIT_MESSAGE" value="Vytis refactoring 24:e" />
   </component>
 </project>

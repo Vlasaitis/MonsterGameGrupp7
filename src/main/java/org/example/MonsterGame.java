@@ -5,6 +5,7 @@ import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Random;
 
 public class MonsterGame {
@@ -27,16 +28,15 @@ public class MonsterGame {
         terminal.putCharacter(playerCharacter);
 
         // Create obstacles array
-        Position[] obstacles = new Position[50];
-        for(int i = 0;i<50;i++){
-            obstacles[i] = new Position(10+i, 10);
+        Obstacle obstacleObject = new Obstacle();
+        obstacleObject.createBorders();
+        List<Position> obstacles = obstacleObject.obstacles;
+
+        for (Position p : obstacles) {
+           terminal.setCursorPosition(p.x, p.y);
+           terminal.putCharacter(block);
         }
 
-        // Use obstacles array to print to lanterna
-        for (Position p : obstacles) {
-            terminal.setCursorPosition(p.x, p.y);
-            terminal.putCharacter(block);
-        }
 
         Random r = new Random();
         Position monPos = new Position(r.nextInt(40,80), r.nextInt(24));
@@ -72,14 +72,13 @@ public class MonsterGame {
             }
             // detect if playerCharacter tries to run into obsticle
 
-            boolean crashIntoObstacle = checkForObstacleCrash(obstacles, player.x, player.y);
-
+            boolean crashIntoObstacle = checkForObstacleCrash(obstacles, player);
             if (crashIntoObstacle) {
                 player.x = oldX;
                 player.y = oldY;
             }
             else {
-                moveObject(oldX, oldY, player.x, player.y, playerCharacter, terminal);
+                moveObject(oldX, oldY, player, playerCharacter, terminal);
             }
 
             // MONSTER MOVEMENT
@@ -87,14 +86,14 @@ public class MonsterGame {
             int monOldY = monPos.y;
 
             setMonsterCoordinates(monPos, player);
-            boolean monsterCrash = checkForObstacleCrash(obstacles,monPos.x, monPos.y);
+            boolean monsterCrash = checkForObstacleCrash(obstacles, monPos);
 
             // helps monster move around obstacle when hitting it
             if (monsterCrash) {
                 helpMonMoveAroundObs(monPos, player, monOldX, monOldY);
-                moveObject(monOldX, monOldY, monPos.x, monPos.y, monster, terminal);
+                moveObject(monOldX, monOldY, monPos, monster, terminal);
             } else {
-                moveObject(monOldX, monOldY, monPos.x, monPos.y, monster, terminal);
+                moveObject(monOldX, monOldY, monPos, monster, terminal);
             }
 
             // check if playerCharacter runs into the monster
@@ -107,17 +106,16 @@ public class MonsterGame {
         }
     }
 
-
-    public static void moveObject(int oldX, int oldY, int newX, int newY, char character, Terminal terminal) throws IOException {
+    public static void moveObject(int oldX, int oldY, Position object, char character, Terminal terminal) throws IOException {
         terminal.setCursorPosition(oldX, oldY);
         terminal.putCharacter(' ');
-        terminal.setCursorPosition(newX, newY);
+        terminal.setCursorPosition(object.x, object.y);
         terminal.putCharacter(character);
         terminal.flush();
     }
-    public static boolean checkForObstacleCrash(Position[] obstacles, int currentX, int currentY) {
+    public static boolean checkForObstacleCrash(List<Position> obstacles, Position player) {
         for (Position p : obstacles) {
-            if (p.x == currentX && p.y == currentY) {
+            if (p.x == player.x && p.y == player.y) {
                 return true;
             }
         }
