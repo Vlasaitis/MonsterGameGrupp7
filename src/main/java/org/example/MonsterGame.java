@@ -27,15 +27,13 @@ public class MonsterGame {
         terminal.setCursorPosition(player.x, player.y);
         terminal.putCharacter(playerCharacter);
 
-        // Create obstacles array
+        // Create Obstacles and Border
         Obstacle obstacleObject = new Obstacle();
         obstacleObject.createBorders();
         List<Position> obstacles = obstacleObject.obstacles;
+        obstacleObject.addObstacle();
 
-        for (Position p : obstacles) {
-           terminal.setCursorPosition(p.x, p.y);
-           terminal.putCharacter(block);
-        }
+        drawObstacles(obstacles, terminal, block);
 
 
         Random r = new Random();
@@ -90,7 +88,7 @@ public class MonsterGame {
 
             // helps monster move around obstacle when hitting it
             if (monsterCrash) {
-                helpMonMoveAroundObs(monPos, player, monOldX, monOldY);
+                helpMonMoveAroundObs(monPos, player, monOldX, monOldY, obstacles);
                 moveObject(monOldX, monOldY, monPos, monster, terminal);
             } else {
                 moveObject(monOldX, monOldY, monPos, monster, terminal);
@@ -103,6 +101,13 @@ public class MonsterGame {
             }
 
             terminal.flush();
+        }
+    }
+
+    private static void drawObstacles(List<Position> obstacles, Terminal terminal, char block) throws IOException {
+        for (Position p : obstacles) {
+            terminal.setCursorPosition(p.x, p.y);
+            terminal.putCharacter(block);
         }
     }
 
@@ -133,17 +138,45 @@ public class MonsterGame {
             monPos.y++;
         }
     }
-    private static void helpMonMoveAroundObs(Position monPos, Position player, int monOldX, int monOldY) {
-        if (monPos.x > player.x) {
-            monPos.x = monOldX-1;
-            monPos.y = monOldY;
-        } else if (monPos.x < player.x) {
-            monPos.x = monOldX+1;
-            monPos.y = monOldY;
-        } else {
-            monPos.x = monOldX;
-            monPos.y = monOldY;
+    private static void helpMonMoveAroundObs(Position monPos, Position player, int monOldX, int monOldY, List<Position> obstacles) {
+        // check if vertical obs
+        boolean isVertical = false;
+        for (Position obstacle : obstacles) {
+            if ((monPos.y + 1) == obstacle.y || (monPos.y - 1) == obstacle.y) {
+                if (player.y > monPos.y) {
+                    monPos.y = monOldY +1;
+                    monPos.x = monOldX;
+                    isVertical = true;
+                } else if (player.y <monPos.y){
+                    monPos.y = monOldY -1;
+                    monPos.x = monOldX;
+                    isVertical = true;
+                } else {
+                    monPos.y = monOldY;
+                    monPos.x = monOldX;
+                    isVertical = true;
+                }
+            }
         }
-    }
+        if (!isVertical) {
+            for (Position obstacle : obstacles) {
+                if ((monPos.x + 1) == obstacle.x || (monPos.x - 1) == obstacle.x) {
+                    if (player.x > monPos.x) {
+                        monPos.x = monOldX +1;
+                        monPos.y = monOldY;
+                    } else if (player.x < monPos.x) {
+                        monPos.x = monOldX -1;
+                        monPos.y = monOldY;
+                    } else {
+                        monPos.y = monOldY;
+                        monPos.x = monOldX;
+                    }
+                }
+            }
 
-}
+
+            }
+        }
+
+
+    }

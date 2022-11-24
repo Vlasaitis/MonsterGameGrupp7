@@ -23,6 +23,14 @@ public class Obstacle {
             this.obstacles.add(new Position(80,i));
         }
     }
+    public void addObstacle() {
+        for(int i = 0;i<25;i++){
+          this.obstacles.add(new Position(10+i, 10));
+       }
+        for(int i = 6;i<18;i++){
+            this.obstacles.add(new Position(40, i));
+        }
+    }
 //    private static List<Position> generateObstacles(Terminal terminal) {
 //        List<Position> obstacles = new ArrayList<>();
 //

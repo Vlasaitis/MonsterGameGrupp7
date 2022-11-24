@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="978af2cc-27d8-417d-8aad-b36d71ffa89c" name="Changes" comment="Vytis refactoring 24:e">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Obstacle.java" afterDir="false" />
+    <list default="true" id="978af2cc-27d8-417d-8aad-b36d71ffa89c" name="Changes" comment="Help the monster">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MonsterGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/MonsterGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Obstacle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Obstacle.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +75,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669280638539</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Obstacles object added">
+      <created>1669296337860</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1669296337860</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -94,6 +101,8 @@
     <MESSAGE value="MonsterGameGrupp7 Start" />
     <MESSAGE value="Vytis refactoring 23:e" />
     <MESSAGE value="Vytis refactoring 24:e" />
-    <option name="LAST_COMMIT_MESSAGE" value="Vytis refactoring 24:e" />
+    <MESSAGE value="Obstacles object added" />
+    <MESSAGE value="Help the monster" />
+    <option name="LAST_COMMIT_MESSAGE" value="Help the monster" />
   </component>
 </project>
